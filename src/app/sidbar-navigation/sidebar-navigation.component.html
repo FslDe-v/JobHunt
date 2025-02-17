@@ -1,0 +1,56 @@
+<nav class="sidebar" [ngClass]="{ collapsed: isCollapsed }">
+  <!-- Header with Title & Collapse Button -->
+  <div
+    class="sidebar-header d-flex align-items-center justify-content-between px-3 py-2"
+  >
+    <h5 class="mb-0 text-white" *ngIf="!isCollapsed">JobHunt</h5>
+    <button
+      class="btn btn-light btn-sm"
+      (click)="toggleSidebar()"
+      aria-label="Toggle Sidebar"
+    >
+      <i class="bi bi-list" *ngIf="!isCollapsed; else collapsedIcon"></i>
+      <ng-template #collapsedIcon>
+        <i class="bi bi-list" style="font-size: 1.2rem"></i>
+      </ng-template>
+    </button>
+  </div>
+
+  <!-- User Icon & Dropdown (Accordion Style) -->
+  <div class="user-menu">
+    <div class="user-toggle" (click)="toggleUserDropdown()">
+      <i class="bi bi-person-circle user-icon"></i>
+      <!-- Show "User" text only if sidebar is not collapsed -->
+      <span class="text-white" *ngIf="!isCollapsed">User</span>
+    </div>
+    <div class="user-dropdown" *ngIf="showUserDropdown">
+      <ul>
+        <li *ngIf="!isLoggedIn" (click)="signUp()">Sign Up</li>
+        <li *ngIf="!isLoggedIn" (click)="signIn()">Sign In</li>
+        <li *ngIf="isLoggedIn" (click)="signOut()">Sign Out</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="list-unstyled mb-0 nav-links">
+    <li routerLinkActive="active">
+      <a [routerLink]="'/home'" class="text-white text-decoration-none">
+        <i class="bi bi-house"></i>
+        <span *ngIf="!isCollapsed">Home</span>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="'/search'" class="text-white text-decoration-none">
+        <i class="bi bi-search"></i>
+        <span *ngIf="!isCollapsed">Search</span>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="'/saved-jobs'" class="text-white text-decoration-none">
+        <i class="bi bi-bookmark"></i>
+        <span *ngIf="!isCollapsed">Saved Jobs</span>
+      </a>
+    </li>
+  </ul>
+</nav>

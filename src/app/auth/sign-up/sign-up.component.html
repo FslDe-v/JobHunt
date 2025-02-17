@@ -1,0 +1,34 @@
+<div class="body">
+  <div class="form">
+    <!-- Close Button -->
+    <button class="close-button" (click)="navigateToHome()">×</button>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="head">
+        <span>Sign up</span>
+        <p>Create a free account with your email.</p>
+      </div>
+      <div class="inputs">
+        <input type="text" placeholder="Full Name" formControlName="name" />
+        <input type="email" placeholder="Email" formControlName="email" />
+        @if(emailIsInvalid && !emailAlreadyTaken){
+        <p class="control-error">Please enter a valid email address.</p>
+        } @if(emailAlreadyTaken){
+        <p class="control-error">This email is already in use.</p>
+        }
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        @if(passwordIsInvalid){
+        <p class="control-error">Password must be at least 6 characters.</p>
+        }
+      </div>
+      <!-- Submit Button -->
+      <button type="submit">Sign up</button>
+    </form>
+    <div class="form-footer">
+      <p>Already have an account? <a routerLink="/auth/signin">Log in</a></p>
+    </div>
+  </div>
+</div>

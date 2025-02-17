@@ -1,0 +1,135 @@
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #191e5e, #9948db);
+  color: #fff;
+  transition: width 0.3s ease;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 90%;
+
+  &.collapsed {
+    width: 80px;
+
+    /* Hide the "JobHunt" title in collapsed mode */
+    h5 {
+      display: none;
+    }
+
+    /* Hide text for user and nav items */
+    .user-toggle span {
+      display: none;
+    }
+    .nav-links li a span {
+      display: none;
+    }
+
+    /* Center icons horizontally in collapsed mode */
+    .user-toggle,
+    .nav-links li a {
+      justify-content: center;
+    }
+  }
+
+  .sidebar-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* USER MENU */
+  .user-menu {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .user-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // space between icon & text
+    cursor: pointer;
+  }
+
+  .user-icon {
+    font-size: 1.8rem;
+    color: #fff;
+  }
+
+  .user-dropdown {
+    background-color: #fff;
+    color: #333;
+    margin-top: 0.5rem;
+    min-width: 150px;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 0.25rem 0;
+    animation: fadeIn 0.2s ease;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+
+  /* NAV LINKS */
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+
+    li a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .active > a {
+      background-color: rgba(255, 255, 255, 0.2);
+      font-weight: 600;
+    }
+  }
+}
+
+/* Simple fade-in keyframes for the dropdown */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+  .sidebar {
+    width: 60px;
+
+    &.collapsed {
+      width: 60px;
+    }
+  }
+  .user-dropdown {
+    min-width: 120px;
+  }
+}

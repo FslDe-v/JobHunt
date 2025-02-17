@@ -1,0 +1,53 @@
+<div class="container">
+  <h2>Adzuna Test API</h2>
+
+  <!-- Button to re-fetch data -->
+  <button (click)="fetchData()">Refresh Data</button>
+
+  <!-- Show error message if any -->
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Check if we have data -->
+  <div *ngIf="jobsResponse?.results?.length as totalJobs; else noData">
+    <h3>Total Jobs: {{ totalJobs }}</h3>
+
+    <!-- Loop over each job -->
+    <div class="jobs-container">
+      <div *ngFor="let job of jobsResponse?.results" class="job-card">
+        <h3>{{ job?.title }}</h3>
+        <p class="company-name">
+          <!-- If job.company.display_name is undefined, fall back to 'Unknown Company' -->
+          {{ job?.company?.display_name || "Unknown Company" }}
+        </p>
+        <p class="location">
+          {{ job?.location?.display_name }}
+        </p>
+
+        <p class="salary">
+          Salary Range:
+          {{ job?.salary_min ?? "N/A" }} -
+          {{ job?.salary_max ?? "N/A" }}
+        </p>
+
+        <p class="description">
+          {{ job?.description }}
+        </p>
+
+        <!-- Contract time (e.g. part_time, full_time) -->
+        <p class="time-type" *ngIf="job?.contract_time">
+          {{ job.contract_time | titlecase }}
+        </p>
+
+        <!-- Link to Adzuna job details -->
+        <a [href]="job?.redirect_url" target="_blank">View Job</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- No data case -->
+  <ng-template #noData>
+    <p>No jobs available at the moment.</p>
+  </ng-template>
+</div>
