@@ -1,1 +1,135 @@
-<p>search works!</p>
+<div class="container py-4">
+  <div class="row mb-4">
+    <div class="col">
+      <div class="p-3 bg-light border rounded shadow-sm">
+        <!--dropdowns-->
+        <div class="d-flex gap-2">
+          <!-- Data Posted -->
+          <div class="dropdown">
+            <button
+              class="btn-filter dropdown-toggle"
+              [ngClass]="{ 'btn-selected': selectedDateOption }"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ selectedDateOption ? selectedDateOption : "Date posted" }}
+            </button>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" (click)="onSelectDate('Any time')">
+                  Any time
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="onSelectDate('Past month')">
+                  Past month
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="onSelectDate('Past week')">
+                  Past week
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  (click)="onSelectDate('Past 24 hours')"
+                >
+                  Past 24 hours
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Experience level -->
+          <div class="dropdown">
+            <button
+              class="btn-filter dropdown-toggle"
+              [ngClass]="{ 'btn-selected': selectedOption }"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ selectedOption ? selectedOption : "Experience level" }}
+            </button>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" (click)="onSelect('Staff')"> Satff </a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="onSelect('Senior')">
+                  Senior
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="onSelect('Junior')">
+                  Junior
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="onSelect('Mid-Level')">
+                  Mid-Level
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button
+              class="btn-filter dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Date posted
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Any time</a></li>
+              <li><a class="dropdown-item">Past month</a></li>
+              <li><a class="dropdown-item">Past week</a></li>
+              <li><a class="dropdown-item">Past 24 hours</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button
+              class="btn-filter dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Date posted
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item">Any time</a></li>
+              <li><a class="dropdown-item">Past month</a></li>
+              <li><a class="dropdown-item">Past week</a></li>
+              <li><a class="dropdown-item">Past 24 hours</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2) Two Columns for Jobs List & Selected Job Description -->
+  <div class="row">
+    <!-- Jobs List -->
+    <div class="col-md-6 mb-4">
+      <div class="p-3 bg-white border rounded shadow-sm h-100">
+        <h5 class="mb-3">Jobs List</h5>
+        <!-- Put your job items here -->
+      </div>
+    </div>
+
+    <!-- Selected Job Description -->
+    <div class="col-md-6 mb-4">
+      <div class="p-3 bg-white border rounded shadow-sm h-100">
+        <h5 class="mb-3">Selected Job Description</h5>
+        <!-- Show the selected job details here -->
+      </div>
+    </div>
+  </div>
+</div>

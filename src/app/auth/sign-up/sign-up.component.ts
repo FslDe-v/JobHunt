@@ -17,6 +17,7 @@ import { AuthService } from '../../auth.sercice';
 export class SignUpComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  errorMessage: string | null = null;
 
   navigateToHome() {
     this.router.navigate(['']);
@@ -66,9 +67,8 @@ export class SignUpComponent {
       const name: string = formValue.name || '';
       const email: string = formValue.email || '';
       const password: string = formValue.password || '';
-      this.authService.signUp(email, name, password).subscribe(() => {
-        this.router.navigate(['/home']);
-      });
+      this.authService.signUp(email, name, password).subscribe(() => {});
+      this.router.navigate(['/home']);
     } else {
       console.error('Form is invalid.');
     }

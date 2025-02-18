@@ -2,6 +2,7 @@ import { NgClass, NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../auth.sercice';
 
 @Component({
   selector: 'app-sidebar-navigation',
@@ -11,8 +12,11 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class SidebarNavigationComponent {
   private router = inject(Router);
+  authService = inject(AuthService);
   isCollapsed = false;
-  isLoggedIn = false;
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
   showUserDropdown = false;
 
   toggleSidebar(): void {
@@ -37,9 +41,11 @@ export class SidebarNavigationComponent {
 
   signIn(): void {
     this.router.navigate(['/auth/signin']);
+    console.log(this.authService.isLoggedIn());
   }
 
   signOut(): void {
     this.router.navigate(['/']);
+    this.authService.currentUser.set(null);
   }
 }

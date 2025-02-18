@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../auth.sercice';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,6 +16,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class SignInComponent {
   private router = inject(Router);
+  private authService = inject(AuthService);
+  errorMessage: string | null = null;
 
   navigateToSignUp() {
     this.router.navigate(['/auth/signup']);
@@ -43,10 +46,17 @@ export class SignInComponent {
       const formValue = this.form.value;
       const email: string = formValue.email || '';
       const password: string = formValue.password || '';
-      this.router.navigate(['/home']);
+      this.authService.signIn(email, password).subscribe({
+        next: () => {
+          this.router.navigate(['/home']);
+        },
+        error: () => {
+          this.errorMessage = 'Invalid email or password.';
+        },
+      });
     } else {
       console.log('Form Submitted:', this.form.value);
-      console.error('Invalid email or password.');
+      this.errorMessage = 'Invalid email or password.';
     }
   }
 }
