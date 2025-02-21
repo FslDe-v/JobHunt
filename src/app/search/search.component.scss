@@ -1,26 +1,188 @@
 .btn-filter {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 9999px;
+  border-radius: 9999px; /* Pill shape */
   color: #333;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.btn-filter:hover,
-.btn-filter:focus {
+.btn-filter:hover {
   background-color: #f2f2f2;
-  border-color: #999;
+}
+
+.btn-selected {
+  background: linear-gradient(45deg, #fc5c7d, #9948db);
+  color: #fff !important;
+}
+
+.dropdown-menu {
+  min-width: 220px;
+  background: #ffffff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+
+.dropdown-item {
+  font-size: 0.95rem;
+  color: #333333;
+  padding: 0.5rem 1.25rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: #f7f7f7;
+  color: #000000;
+}
+
+.dropdown-divider {
+  height: 5px;
+  margin: 0.5rem 0;
+  background-color: #e9ecef;
 }
 
 .dropdown-toggle::after {
   margin-left: 0.5rem;
 }
 
-/* Class that applies once an option is chosen */
-.btn-selected {
-  background: linear-gradient(45deg, #191e5e, #9948db);
+.selection-indicator {
+  width: 1.5rem;
+  display: inline-block;
+  text-align: center;
+  margin-right: 0.5rem;
+}
 
-  color: #fff !important;
+.btn-filter {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  color: #333;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+/* Saved Jobs Container - ensures a minimum height */
+.saved-jobs-container {
+  min-height: 300px; /* Adjust as needed */
+}
+
+/* ==========================
+   1) Modern Rectangular Job Card
+   ========================== */
+
+/* A base job-card style */
+.job-card {
+  border: none; /* Remove default borders */
+  border-radius: 10px; /* Slightly rounded corners */
+  overflow: hidden; /* Clean edge for header and body */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modern-rectangular {
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+/* Hover effect */
+.modern-rectangular:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Bookmark icon top-right */
+.bookmark-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #9948db;
+}
+
+.bookmark-icon:hover {
+  color: #666;
+}
+
+.bi-bookmark-fill {
+  color: #9948db;
+}
+
+/* ==========================
+   2) Modern Gradient Pill Button
+   ========================== */
+
+.btn-details {
+  background: linear-gradient(45deg, #fc5c7d, #9948db);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-details.btn-sm {
+  padding: 0.3rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.btn-details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================
+   3) Logo & Divider
+   ========================== */
+
+/* Container for the company logo on the left */
+.logo-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  background-color: #f0f0f0; /* fallback if no image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* The actual logo image */
+.company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vertical divider between logo and job details */
+.vertical-divider {
+  width: 1px;
+  height: 60px; /* match .logo-container height */
+  background-color: #ddd; /* subtle grey line */
+}
+
+.btn-apply {
+  background: linear-gradient(45deg, #fc5c7d, #6a82fb);
+  /* Adjust colors to match your desired pink/purple gradient */
+  border: none;
+  border-radius: 25px; /* pill shape */
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

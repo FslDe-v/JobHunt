@@ -1,1 +1,120 @@
-<p>saved-jobs works!</p>
+<div class="container py-4">
+  <!-- Greeting Message -->
+  <div class="greeting text-center mb-4">
+    <h2 class="fw-bold" *ngIf="authService.currentUser() as currentUser">
+      <span class="gradient-text"> Welcome, {{ currentUser.userName }}</span> 👋🏻
+    </h2>
+    <p class="lead text-muted">These are your saved jobs.</p>
+  </div>
+
+  <div class="row" style="height: 80vh; overflow: hidden">
+    <div class="col-md-6 mb-4" style="height: 100%; overflow-y: auto">
+      <div
+        class="p-3 bg-white border rounded shadow-sm"
+        style="min-height: 100%"
+      >
+        <h5 class="mb-3">Jobs List</h5>
+        <div class="row g-3">
+          <div class="col-12" *ngFor="let job of jobs">
+            <div
+              class="job-card modern-rectangular position-relative d-flex align-items-center p-3 mb-3"
+            >
+              <div class="bookmark-icon" (click)="toggleBookmark(job)">
+                <i
+                  [ngClass]="
+                    job.isBookmarked
+                      ? 'bi bi-bookmark-fill'
+                      : 'bi bi-bookmark-fill'
+                  "
+                ></i>
+              </div>
+
+              <div class="logo-container me-3">
+                <img
+                  [src]="job.company_object?.logo"
+                  alt="Company Logo"
+                  class="company-logo"
+                />
+              </div>
+
+              <!-- Vertical Divider -->
+              <div class="vertical-divider me-3"></div>
+
+              <!-- Right side: Job Details -->
+              <div class="flex-grow-1">
+                <h5 class="mb-2">{{ job.job_title }}</h5>
+                <p class="mb-1"><strong>Company:</strong> {{ job.company }}</p>
+                <p class="mb-1">
+                  <strong>Location:</strong> {{ job.long_location }}
+                </p>
+                <p class="mb-1">
+                  <strong>Seniority:</strong> {{ job.seniority }}
+                </p>
+                <button
+                  class="btn-details btn-sm mt-2"
+                  (click)="setSelectedJob(job)"
+                >
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4" style="height: 100%; overflow-y: auto">
+      <div
+        class="p-3 bg-white border rounded shadow-sm"
+        style="min-height: 100%"
+      >
+        <h5 class="mb-3">Selected Job Description</h5>
+
+        <ng-container *ngIf="selectedJob; else noJob">
+          <div class="row align-items-center mb-3">
+            <div class="col-auto">
+              <div class="logo-container">
+                <img
+                  [src]="selectedJob.company_object?.logo"
+                  alt="Company Logo"
+                  class="company-logo"
+                />
+              </div>
+            </div>
+            <div class="col">
+              <h5 class="mb-0">
+                {{ selectedJob.company_object?.name || selectedJob.company }}
+              </h5>
+            </div>
+          </div>
+
+          <h5 class="mt-3">
+            {{ selectedJob.job_title }}
+            <small class="text-muted ms-2">{{ selectedJob.seniority }}</small>
+          </h5>
+
+          <p class="text-muted mb-2">
+            {{ selectedJob.long_location }}, {{ selectedJob.country }} •
+            {{ selectedJob.date_posted }}
+          </p>
+
+          <h5 class="mt-3">About the job</h5>
+          <p>
+            {{ getJobDescription() }}
+          </p>
+
+          <button
+            class="btn-apply"
+            (click)="goToSourceUrl(selectedJob.source_url)"
+          >
+            Apply
+          </button>
+        </ng-container>
+
+        <ng-template #noJob>
+          <p class="text-muted">No job selected.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

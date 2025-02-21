@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 /* Global CSS Variables */
 :root {
-  --primary-color: #4a90e2; 
-  --secondary-color: #50e3c2; 
-  --background-color: #e1dede; 
-  --sidebar-bg: #1b2631; 
-  --content-text-color: #333; 
+  --primary-color: #4a90e2;
+  --secondary-color: #50e3c2;
+  --background-color: #f8f8f8;
+  --sidebar-bg: #1b2631;
+  --content-text-color: #333;
   --font-family: "Roboto", sans-serif;
-  --border-radius: 0.5rem; /
+  --border-radius: 0.5rem;
 }
 
 html,
@@ -21,7 +21,6 @@ body {
   font-family: var(--font-family);
   background-color: var(--background-color);
   color: var(--content-text-color);
-  
 }
 span {
   color: #e1dede;

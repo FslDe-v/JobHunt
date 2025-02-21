@@ -1,1 +1,78 @@
-<p>home works!</p>
+<div class="container-fluid p-0">
+  <section
+    class="d-flex flex-column flex-md-row"
+    style="height: 50vh; margin: 0"
+  >
+    <div
+      class="d-flex flex-column justify-content-center align-items-start p-5"
+      style="flex: 1; background-color: #f7f7f7"
+    >
+      <h1 class="gradient-text display-4 fw-bold mb-3">Find Your Future</h1>
+      <p class="lead mb-4">
+        Explore thousands of job opportunities across industries and locations.
+      </p>
+      <button
+        class="btn-modern"
+        [routerLink]="'/search'"
+        routerLinkActive="router-link-active"
+      >
+        Get Started
+      </button>
+    </div>
+
+    <div class="d-flex justify-content-start my-3">
+      <img src="a.png" alt="Illustration" class="img-fluid" />
+    </div>
+  </section>
+
+  <section class="py-5 mt-5" style="background-color: #f7f7f7">
+    <div class="container text-center">
+      <!-- Section Header -->
+      <div class="row mb-4">
+        <div class="col">
+          <h2 class="fw-bold">What We Offer</h2>
+          <p class="text-muted">Empowering your career journey</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div
+            class="card card-modern h-100 border-0 shadow-sm d-flex flex-column align-items-center p-4"
+          >
+            <i
+              class="bi bi-briefcase-fill display-4 custom-icon-color mb-3"
+            ></i>
+            <h5 class="card-title">Tailored Job Matches</h5>
+            <p class="card-text text-muted mb-0">
+              Find roles that align with your skills and goals.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div
+            class="card card-modern h-100 border-0 shadow-sm d-flex flex-column align-items-center p-4"
+          >
+            <i class="bi bi-bell-fill display-4 custom-icon-color mb-3"></i>
+            <h5 class="card-title">Real-Time Alerts</h5>
+            <p class="card-text text-muted mb-0">
+              Get instant notifications on new openings.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div
+            class="card card-modern h-100 border-0 shadow-sm d-flex flex-column align-items-center p-4"
+          >
+            <i
+              class="bi bi-check-circle-fill display-4 custom-icon-color mb-3"
+            ></i>
+            <h5 class="card-title">1-Click Applications</h5>
+            <p class="card-text text-muted mb-0">
+              Apply quickly and track your progress easily.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

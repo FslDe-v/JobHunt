@@ -1,24 +1,23 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TestAPIComponent } from './test-api/test-api.component';
 import { SidebarNavigationComponent } from './sidbar-navigation/sidebar-navigation.component';
 import { AuthService } from './auth.sercice';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TestAPIComponent, SidebarNavigationComponent],
+  imports: [RouterOutlet, SidebarNavigationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   authService = inject(AuthService);
-
   ngOnInit(): void {
     this.authService.user$.subscribe((user) => {
       if (user) {
         this.authService.currentUser.set({
           email: user.email!,
           userName: user.displayName!,
+          uid: user.uid,
         });
       } else {
         this.authService.currentUser.set(null);

@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
   min-height: 100vh;
-  background: linear-gradient(45deg, #191e5e, #9948db);
+  background: linear-gradient(45deg, #fc5c7d, #9948db);
   color: #fff;
   transition: width 0.3s ease;
   margin: 0;
@@ -13,12 +13,10 @@
   &.collapsed {
     width: 80px;
 
-    /* Hide the "JobHunt" title in collapsed mode */
     h5 {
       display: none;
     }
 
-    /* Hide text for user and nav items */
     .user-toggle span {
       display: none;
     }
@@ -26,7 +24,6 @@
       display: none;
     }
 
-    /* Center icons horizontally in collapsed mode */
     .user-toggle,
     .nav-links li a {
       justify-content: center;
@@ -37,7 +34,6 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  /* USER MENU */
   .user-menu {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -46,7 +42,7 @@
   .user-toggle {
     display: flex;
     align-items: center;
-    gap: 0.75rem; // space between icon & text
+    gap: 0.75rem;
     cursor: pointer;
   }
 
@@ -81,7 +77,6 @@
     }
   }
 
-  /* NAV LINKS */
   .nav-links {
     list-style: none;
     margin: 0;
@@ -108,7 +103,6 @@
   }
 }
 
-/* Simple fade-in keyframes for the dropdown */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -120,7 +114,6 @@
   }
 }
 
-/* RESPONSIVE */
 @media (max-width: 576px) {
   .sidebar {
     width: 60px;

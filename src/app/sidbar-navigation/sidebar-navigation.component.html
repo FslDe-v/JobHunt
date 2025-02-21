@@ -1,5 +1,4 @@
 <nav class="sidebar" [ngClass]="{ collapsed: isCollapsed }">
-  <!-- Header with Title & Collapse Button -->
   <div
     class="sidebar-header d-flex align-items-center justify-content-between px-3 py-2"
   >
@@ -16,12 +15,14 @@
     </button>
   </div>
 
-  <!-- User Icon & Dropdown (Accordion Style) -->
   <div class="user-menu">
     <div class="user-toggle" (click)="toggleUserDropdown()">
       <i class="bi bi-person-circle user-icon"></i>
-      <!-- Show "User" text only if sidebar is not collapsed -->
-      <span class="text-white" *ngIf="!isCollapsed">User</span>
+      <span
+        class="text-white"
+        *ngIf="!isCollapsed && authService.currentUser() as currentUser"
+        >{{ currentUser.userName }}</span
+      >
     </div>
     <div class="user-dropdown" *ngIf="showUserDropdown">
       <ul>
@@ -32,7 +33,6 @@
     </div>
   </div>
 
-  <!-- Navigation Links -->
   <ul class="list-unstyled mb-0 nav-links">
     <li routerLinkActive="active">
       <a [routerLink]="'/home'" class="text-white text-decoration-none">

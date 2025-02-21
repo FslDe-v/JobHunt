@@ -1,0 +1,50 @@
+.hero-section {
+  position: relative;
+}
+h1,
+h2 {
+  background: linear-gradient(45deg, #fc5c7d, #9948db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+.animated-img {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards ease-in-out;
+}
+
+.btn-modern {
+  background: linear-gradient(45deg, #fc5c7d, #9948db);
+
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.custom-icon-color {
+  color: #fc5c7d;
+}
+
+.card-modern {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}

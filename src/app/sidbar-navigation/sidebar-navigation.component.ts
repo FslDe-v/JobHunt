@@ -1,5 +1,5 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../auth.sercice';
@@ -14,6 +14,12 @@ export class SidebarNavigationComponent {
   private router = inject(Router);
   authService = inject(AuthService);
   isCollapsed = false;
+  userName = signal<string>('');
+
+  setUserName(userName: string) {
+    this.userName.set(userName);
+  }
+
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
