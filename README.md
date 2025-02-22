@@ -1,59 +1,45 @@
-# JobFind
+# JobFinder 🚀
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## Overview
 
-## Development server
+JobFinder is a dynamic job search application built with modern web technologies. It allows users to easily filter and save job listings, view detailed job descriptions, and bookmark jobs for later review—all within a sleek, responsive interface.
 
-To start a local development server, run:
+## Live Demo 🌐
 
-```bash
-ng serve
-```
+Check out the live demo here: [JobFinder Live Demo](https://jobhun-app.web.app)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Features ✨
 
-## Code scaffolding
+- **Responsive UI:** Clean and modern design that works on all devices.
+- **Advanced Filtering:** Quickly search jobs by location, experience, and more.
+- **Bookmarking:** Toggle bookmarks to save your favorite jobs.
+- **Real-Time Updates:** Integrated with Firebase for instant data changes.
+- **User Authentication:** Secure sign-up, login, and profile management.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tool Stack 🛠️
 
-```bash
-ng generate component component-name
-```
+- **Angular**
+- **HTML**
+- **CSS**
+- **Firebase**
+- **Bootstrap**
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## What I've Learned 📚
 
-```bash
-ng generate --help
-```
+- Building robust, real-time web applications with Angular and Firebase.
+- Designing clean, modern UIs using Bootstrap and custom CSS.
+- Managing asynchronous data with Observables and Signals.
+- Best practices for authentication and data handling in a production environment.
+- The importance of responsive design and user experience.
 
-## Building
+## How to Run ▶️
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/jobfinder.git
+   cd jobfinder
+   ```
+2. **Install dependencies:**
+   npm install
+3. **Run The Application:**
+   ng serve
